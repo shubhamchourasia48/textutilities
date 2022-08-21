@@ -4,7 +4,12 @@ import Navbar from './components/Navbar';
 import Textform from './components/Textform';
 import React, { useState } from 'react'
 import Alert from './components/Alert';
-import { Route, Switch } from 'react-router-dom'
+import {
+  
+  Switch,
+  Route,
+  
+} from "react-router-dom";
 
 
 
@@ -43,18 +48,23 @@ function App() {
   }
 
   return (
+  
     <>
-      <Route>
-        <Navbar title="TextUtils" aboutText="About us" mode={mode} toggle={toggleMode} />
-        <Alert alert={alert} />
-        <div className="container my-3">
-          <switch></switch>
-          <Textform heading="Text-Utils" mode={mode} showAlert={showAlert} />
-          <About />
-        </div>
-      </Route>
+      <Navbar title="TextUtils" aboutText="About us" mode={mode} toggle={toggleMode} />
+      <Alert alert={alert} />
+      <div className="container my-3">
+        <Switch>
+          <Route exact path="/about">
+            <About />
+          </Route>
+          <Route exact path="/">
+            <Textform heading="Text-Utils" mode={mode} showAlert={showAlert} />
+          </Route>
+        </Switch>
+      </div>
     </>
-  )
+   )
 }
-
+      
 export default App;
+
