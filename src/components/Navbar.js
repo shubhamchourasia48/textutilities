@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const Navbar = ({title, aboutText, mode, toggle}) => {
   return (
    <>
-   <nav className={`navbar navbar-expand-lg navbar-${mode} bg-${mode}`}>
+   <nav className={`navbar navbar-expand-md navbar-${mode} bg-${mode}`}>
   <div className="container-fluid ms-5">
     <Link className="navbar-brand" to="/">{title}</Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,6 +21,7 @@ const Navbar = ({title, aboutText, mode, toggle}) => {
         </li>
       </ul>
     </div>
+    {/* Switch for mode toggling */}
   <div className={`form-check form-switch me-5 text-${mode==='light'?'dark':'light'}`}>
   <input className="form-check-input" type="checkbox" onClick={toggle} role="switch" id="flexSwitchCheckDefault"/>
   <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable Dark Mode</label>

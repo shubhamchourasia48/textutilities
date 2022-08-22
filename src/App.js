@@ -4,11 +4,12 @@ import Navbar from './components/Navbar';
 import Textform from './components/Textform';
 import React, { useState } from 'react'
 import Alert from './components/Alert';
+import Error from './components/Error';
 import {
-  
+
   Switch,
   Route,
-  
+
 } from "react-router-dom";
 
 
@@ -48,23 +49,28 @@ function App() {
   }
 
   return (
-  
+
     <>
       <Navbar title="TextUtils" aboutText="About us" mode={mode} toggle={toggleMode} />
       <Alert alert={alert} />
       <div className="container my-3">
         <Switch>
-          <Route exact path="/about">
+          <Route exact path="/about" >
             <About />
           </Route>
           <Route exact path="/">
             <Textform heading="Text-Utils" mode={mode} showAlert={showAlert} />
           </Route>
+
+          <Route>
+            <Error mode={mode}/>
+          </Route>
+
         </Switch>
       </div>
     </>
-   )
+  )
 }
-      
+
 export default App;
 
